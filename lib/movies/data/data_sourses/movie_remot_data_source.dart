@@ -5,6 +5,7 @@ import 'package:movies_app/core/network/error_message_model.dart';
 import 'package:movies_app/movies/data/models/movies_model.dart';
 
 abstract class BaseMovieRemoteDataSource {
+  // this contract abstract class repository
   Future<List<MoviesModel>> getNowPlayingMovies();
   Future<List<MoviesModel>> getPopularMovies();
   Future<List<MoviesModel>> getTopRatedMovies();

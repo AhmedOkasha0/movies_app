@@ -6,6 +6,6 @@ class GetTopRatedMovies {
   GetTopRatedMovies({required this.moviesRepository});
 
   Future<List<Movie>> execute() async {
-    return moviesRepository.getNowMovies();
+    return moviesRepository.getTopRatedMovies();
   }
 }
