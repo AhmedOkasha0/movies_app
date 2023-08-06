@@ -14,18 +14,28 @@ class MoviesRepositoryImpl extends BaseMoviesRepository {
     final result = await baseMovieRemoteDataSource.getNowPlayingMovies();
     try {
       return right(result);
-    } on ServerExeption catch(failure) {
+    } on ServerExeption catch (failure) {
       return left(SereverFailuer(failure.errorMessageModel.statusMessage));
     }
   }
 
   @override
-  Future<Either<Failuer, List<Movie>>> getPopularMovies() {
-    throw UnimplementedError();
+  Future<Either<Failuer, List<Movie>>> getPopularMovies() async {
+    final result = await baseMovieRemoteDataSource.getPopularMovies();
+    try {
+      return right(result);
+    } on ServerExeption catch (failure) {
+      return left(SereverFailuer(failure.errorMessageModel.statusMessage));
+    }
   }
 
   @override
-  Future<Either<Failuer, List<Movie>>> getTopRatedMovies() {
-    throw UnimplementedError();
+  Future<Either<Failuer, List<Movie>>> getTopRatedMovies() async {
+    final result = await baseMovieRemoteDataSource.getTopRatedMovies();
+    try {
+      return right(result);
+    } on ServerExeption catch (failure) {
+      return left(SereverFailuer(failure.errorMessageModel.statusMessage));
+    }
   }
 }
