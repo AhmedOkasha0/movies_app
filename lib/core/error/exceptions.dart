@@ -11,3 +11,4 @@ class LocalDataBaseException {
 
   const LocalDataBaseException({required this.message});
 }
+
