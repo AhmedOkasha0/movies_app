@@ -5,7 +5,7 @@ import 'package:movies_app/movies/domin/repository/movies_repository.dart';
 
 class GetTopRatedMovies {
   final BaseMoviesRepository moviesRepository;
-  GetTopRatedMovies({required this.moviesRepository});
+  GetTopRatedMovies(this.moviesRepository);
 
   Future<Either<Failuer, List<Movie>>> execute() async {
     return moviesRepository.getTopRatedMovies();
