@@ -15,6 +15,11 @@ class MovieBloc extends Bloc<MoviesBlocEvent, MoviesBlocState> {
   ) : super(const MoviesBlocState()) {
     on<GetNowPlayingMoviesEvent>((event, emit) async {
       final result = await getNowPlayingMovies.execute();
+      emit(const MoviesBlocState(nowPlayingState: RequestState.loaded));
+      result.fold(
+          (l) => emit(MoviesBlocState(nowPlayingMessage: l.message)),
+          (r) => emit(MoviesBlocState(
+              nowPlayingMovies: r, nowPlayingState: RequestState.loaded)));
     });
   }
 }

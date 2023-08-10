@@ -15,7 +15,3 @@ class MoviesBlocState extends Equatable {
   List<Object> get props =>
       [nowPlayingMovies, nowPlayingMessage, nowPlayingState];
 }
-
-class MoviesBlocInitial extends MoviesBlocState {}
-
-

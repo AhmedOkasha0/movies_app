@@ -5,6 +5,7 @@ import 'package:movies_app/movies/domin/repository/movies_repository.dart';
 import 'package:movies_app/movies/domin/usecases/get_now_playing_movies.dart';
 import 'package:movies_app/movies/domin/usecases/get_popular_movies.dart';
 import 'package:movies_app/movies/domin/usecases/get_top_rated_movies.dart';
+import 'package:movies_app/movies/presentation/bloc/movies_bloc_bloc.dart';
 
 GetIt sl = GetIt.instance;
 
@@ -22,5 +23,8 @@ class ServicesLocator {
     sl.registerLazySingleton(() => GetNowPlayingMovies(sl()));
     sl.registerLazySingleton(() => GetPopularMovies(sl()));
     sl.registerLazySingleton(() => GetTopRatedMovies(sl()));
+
+    // bloc
+    sl.registerFactory(() => MovieBloc(sl()));
   }
 }
