@@ -25,6 +25,6 @@ class ServicesLocator {
     sl.registerLazySingleton(() => GetTopRatedMovies(sl()));
 
     // bloc
-    sl.registerFactory(() => MovieBloc(sl()));
+    sl.registerFactory(() => MovieBloc(sl(), sl(), sl()));
   }
 }

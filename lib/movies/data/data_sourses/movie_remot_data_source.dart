@@ -20,31 +20,31 @@ class MovieRemoteDataSource extends BaseMovieRemoteDataSource {
           .map((e) => MoviesModel.fromjson(e)));
     } else {
       throw ServerExeption(
-          errorMessageModel: ErrorMessageModel.fromjson(response.data));
+          errorMessageModel: ErrorMessageModel.fromJson(response.data));
     }
   }
 
   @override
   Future<List<MoviesModel>> getPopularMovies() async {
     final response = await Dio().get(ApiConstance.nowPlayingEndpoint);
-    if (response.data == 200) {
+    if (response.statusCode == 200) {
       return List<MoviesModel>.from((response.data["results"] as List)
           .map((e) => MoviesModel.fromjson(e)));
     } else {
       throw ServerExeption(
-          errorMessageModel: ErrorMessageModel.fromjson(response.data));
+          errorMessageModel: ErrorMessageModel.fromJson(response.data));
     }
   }
 
   @override
   Future<List<MoviesModel>> getTopRatedMovies() async {
-    final response = await Dio().get(ApiConstance.topRatedMoviesEndpoint);
-    if (response.data == 200) {
+    final response = await Dio().get("https://api.themoviedb.org/3/movie/top_rated?api_key=3f0feda1306a4d38e9cfc9586b1e7055");
+    if (response.statusCode == 200) {
       return List<MoviesModel>.from((response.data["results"] as List)
           .map((e) => MoviesModel.fromjson(e)));
     } else {
       throw ServerExeption(
-          errorMessageModel: ErrorMessageModel.fromjson(response.data));
+          errorMessageModel: ErrorMessageModel.fromJson(response.data));
     }
   }
 }
