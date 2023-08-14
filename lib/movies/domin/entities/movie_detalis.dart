@@ -21,16 +21,12 @@ class MovieDetalis extends Equatable {
 
   @override
   List<Object?> get props => [
-    backdropPath,
-    id,
-    overView,
-    relaseDate,
-    title,
-    voteAvergae,
-    runTime
-
-
-
-
-  ];
+        backdropPath,
+        id,
+        overView,
+        relaseDate,
+        title,
+        voteAvergae,
+        runTime,
+      ];
 }
