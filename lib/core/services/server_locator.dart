@@ -20,9 +20,9 @@ class ServicesLocator {
         () => MoviesRepositoryImpl(sl()));
 
     // now playing usecase
-    sl.registerLazySingleton(() => GetNowPlayingMovies(sl()));
-    sl.registerLazySingleton(() => GetPopularMovies(sl()));
-    sl.registerLazySingleton(() => GetTopRatedMovies(sl()));
+    sl.registerLazySingleton(() => GetNowPlayingMoviesUseCase(sl()));
+    sl.registerLazySingleton(() => GetPopularMoviesUseCase(sl()));
+    sl.registerLazySingleton(() => GetTopRatedMoviesUseCase(sl()));
 
     // bloc
     sl.registerFactory(() => MovieBloc(sl(), sl(), sl()));

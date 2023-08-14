@@ -11,16 +11,16 @@ part 'movies_bloc_event.dart';
 part 'movies_bloc_state.dart';
 
 class MovieBloc extends Bloc<MoviesBlocEvent, MoviesBlocState> {
-  final GetNowPlayingMovies getNowPlayingMovies;
-  final GetPopularMovies getPopularMovies;
-  final GetTopRatedMovies getTopRatedMovies;
+  final GetNowPlayingMoviesUseCase getNowPlayingMovies;
+  final GetPopularMoviesUseCase getPopularMovies;
+  final GetTopRatedMoviesUseCase getTopRatedMovies;
   MovieBloc(
     this.getNowPlayingMovies,
     this.getPopularMovies,
     this.getTopRatedMovies,
   ) : super(const MoviesBlocState()) {
     on<GetNowPlayingMoviesEvent>((event, emit) async {
-      final result = await getNowPlayingMovies.execute();
+      final result = await getNowPlayingMovies();
       emit(const MoviesBlocState(nowPlayingState: RequestState.loaded));
       result.fold(
           (l) => emit(state.copyWith(
@@ -30,7 +30,7 @@ class MovieBloc extends Bloc<MoviesBlocEvent, MoviesBlocState> {
               nowPlayingMovies: r, nowPlayingState: RequestState.loaded)));
     });
     on<GetPopularMoviesEvent>((event, emit) async {
-      final result = await getPopularMovies.execute();
+      final result = await getPopularMovies();
       result.fold(
         (l) => emit(state.copyWith(
             popularState: RequestState.error, popularMesaage: l.message)),
@@ -40,7 +40,7 @@ class MovieBloc extends Bloc<MoviesBlocEvent, MoviesBlocState> {
     });
 
     on<GetTopRatedMoviesEvent>((event, emit) async {
-      final result = await getTopRatedMovies.execute();
+      final result = await getTopRatedMovies();
       result.fold(
           (l) => emit(state.copyWith(
               topratedState: RequestState.error, topRatedMessage: l.message)),
