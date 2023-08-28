@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies_app/core/base_usecase/base_usecase.dart';
 
 import 'package:movies_app/core/utils/enums.dart';
 import 'package:movies_app/movies/domin/entities/movie.dart';
@@ -20,7 +21,7 @@ class MovieBloc extends Bloc<MoviesBlocEvent, MoviesBlocState> {
     this.getTopRatedMovies,
   ) : super(const MoviesBlocState()) {
     on<GetNowPlayingMoviesEvent>((event, emit) async {
-      final result = await getNowPlayingMovies();
+      final result = await getNowPlayingMovies(const NoParameter());
       emit(const MoviesBlocState(nowPlayingState: RequestState.loaded));
       result.fold(
           (l) => emit(state.copyWith(
@@ -30,7 +31,7 @@ class MovieBloc extends Bloc<MoviesBlocEvent, MoviesBlocState> {
               nowPlayingMovies: r, nowPlayingState: RequestState.loaded)));
     });
     on<GetPopularMoviesEvent>((event, emit) async {
-      final result = await getPopularMovies();
+      final result = await getPopularMovies(const NoParameter());
       result.fold(
         (l) => emit(state.copyWith(
             popularState: RequestState.error, popularMesaage: l.message)),
@@ -40,7 +41,7 @@ class MovieBloc extends Bloc<MoviesBlocEvent, MoviesBlocState> {
     });
 
     on<GetTopRatedMoviesEvent>((event, emit) async {
-      final result = await getTopRatedMovies();
+      final result = await getTopRatedMovies(const NoParameter());
       result.fold(
           (l) => emit(state.copyWith(
               topratedState: RequestState.error, topRatedMessage: l.message)),

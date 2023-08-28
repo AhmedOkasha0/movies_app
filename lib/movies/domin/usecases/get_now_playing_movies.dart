@@ -4,11 +4,11 @@ import 'package:movies_app/core/failuer/failuer.dart';
 import 'package:movies_app/movies/domin/entities/movie.dart';
 import 'package:movies_app/movies/domin/repository/movies_repository.dart';
 
-class GetNowPlayingMoviesUseCase extends BaseUseCase<List<Movie>> {
+class GetNowPlayingMoviesUseCase extends BaseUseCase<List<Movie>,NoParameter> {
   final BaseMoviesRepository moviesRepository;
   GetNowPlayingMoviesUseCase(this.moviesRepository);
   @override
-  Future<Either<Failuer, List<Movie>>> call() async {
-    return moviesRepository.getNowMovies();
+  Future<Either<Failuer, List<Movie>>> call(NoParameter parameter)  async {
+    return await moviesRepository.getNowMovies();
   }
 }
