@@ -8,16 +8,18 @@ class MovieDetalis extends Equatable {
   final String title;
   final double voteAvergae;
   final int runTime;
+  final List genres;
 
-  const MovieDetalis(
-    this.backdropPath,
-    this.id,
-    this.overView,
-    this.relaseDate,
-    this.title,
-    this.voteAvergae,
-    this.runTime,
-  );
+  const MovieDetalis({
+    required this.backdropPath,
+    required this.id,
+    required this.overView,
+    required this.relaseDate,
+    required this.title,
+    required this.voteAvergae,
+    required this.runTime,
+    required this.genres,
+  });
 
   @override
   List<Object?> get props => [
@@ -28,5 +30,6 @@ class MovieDetalis extends Equatable {
         title,
         voteAvergae,
         runTime,
+        genres
       ];
 }

@@ -2,7 +2,6 @@ import 'package:movies_app/movies/domin/entities/movie.dart';
 
 class MoviesModel extends Movie {
   const MoviesModel(
-    
       {required super.backdropPath,
       required super.releaseDate,
       required super.id,
