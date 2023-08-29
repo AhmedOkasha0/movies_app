@@ -2,9 +2,10 @@ import 'package:dartz/dartz.dart';
 import 'package:movies_app/core/error/exceptions.dart';
 import 'package:movies_app/core/failuer/failuer.dart';
 import 'package:movies_app/movies/data/data_sourses/movie_remot_data_source.dart';
-import 'package:movies_app/movies/domin/entities/movie.dart';
-import 'package:movies_app/movies/domin/entities/movie_detalis.dart';
-import 'package:movies_app/movies/domin/repository/movies_repository.dart';
+import 'package:movies_app/movies/domain/entities/movie.dart';
+import 'package:movies_app/movies/domain/entities/movie_detalis.dart';
+import 'package:movies_app/movies/domain/repository/movies_repository.dart';
+import 'package:movies_app/movies/domain/usecases/get_movie_detalis.dart';
 
 class MoviesRepositoryImpl extends BaseMoviesRepository {
   final BaseMovieRemoteDataSource baseMovieRemoteDataSource;
@@ -39,12 +40,15 @@ class MoviesRepositoryImpl extends BaseMoviesRepository {
       return left(SereverFailuer(failure.errorMessageModel.statusMessage));
     }
   }
-  
+
   @override
-  Future<Either<Failuer, List<MovieDetalis>>> getMovieDetalis() {
-    // TODO: implement getMovieDetalis
-    throw UnimplementedError();
+  Future<Either<Failuer, MovieDetalis>> getMovieDetalis(
+      MovieDetalisParameter parameter) async {
+    final result = await baseMovieRemoteDataSource.getMovieDetalis(parameter);
+    try {
+      return right(result);
+    } on ServerExeption catch (failure) {
+      return left(SereverFailuer(failure.errorMessageModel.statusMessage));
+    }
   }
-
-
 }

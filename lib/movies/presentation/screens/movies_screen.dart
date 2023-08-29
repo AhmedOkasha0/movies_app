@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:movies_app/core/services/server_locator.dart';
-import 'package:movies_app/movies/presentation/bloc/movies_bloc_bloc.dart';
+import 'package:movies_app/movies/presentation/bloc/movie_bloc/movies_bloc_bloc.dart';
 import 'package:movies_app/movies/presentation/widgets/now_playing_widget.dart';
 import 'package:movies_app/movies/presentation/widgets/popular_widget.dart';
 import 'package:movies_app/movies/presentation/widgets/top_rated_widget.dart';

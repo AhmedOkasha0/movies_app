@@ -1,4 +1,4 @@
-import 'package:movies_app/movies/domin/entities/movie.dart';
+import 'package:movies_app/movies/domain/entities/movie.dart';
 
 class MoviesModel extends Movie {
   const MoviesModel(
@@ -9,7 +9,7 @@ class MoviesModel extends Movie {
       required super.title,
       required super.voteAverage,
       required super.genreIds});
-  factory MoviesModel.fromjson(Map<String, dynamic> json) => MoviesModel(
+  factory MoviesModel.fromJson(Map<String, dynamic> json) => MoviesModel(
         backdropPath: json['backdrop_path'],
         id: json['id'],
         releaseDate: json['release_date'],

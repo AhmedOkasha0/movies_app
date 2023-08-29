@@ -3,10 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/core/base_usecase/base_usecase.dart';
 
 import 'package:movies_app/core/utils/enums.dart';
-import 'package:movies_app/movies/domin/entities/movie.dart';
-import 'package:movies_app/movies/domin/usecases/get_now_playing_movies.dart';
-import 'package:movies_app/movies/domin/usecases/get_popular_movies.dart';
-import 'package:movies_app/movies/domin/usecases/get_top_rated_movies.dart';
+import 'package:movies_app/movies/domain/entities/movie.dart';
+import 'package:movies_app/movies/domain/usecases/get_now_playing_movies.dart';
+import 'package:movies_app/movies/domain/usecases/get_popular_movies.dart';
+import 'package:movies_app/movies/domain/usecases/get_top_rated_movies.dart';
 
 part 'movies_bloc_event.dart';
 part 'movies_bloc_state.dart';

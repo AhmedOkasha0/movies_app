@@ -1,5 +1,5 @@
 import 'package:movies_app/movies/data/models/genres_model.dart';
-import 'package:movies_app/movies/domin/entities/movie_detalis.dart';
+import 'package:movies_app/movies/domain/entities/movie_detalis.dart';
 
 class MovieDetalisModel extends MovieDetalis {
   const MovieDetalisModel({
@@ -13,7 +13,7 @@ class MovieDetalisModel extends MovieDetalis {
     required super.genres,
   });
 
-  factory MovieDetalisModel.fromjson(Map<String, dynamic> json) =>
+  factory MovieDetalisModel.fromJson(Map<String, dynamic> json) =>
       MovieDetalisModel(
         backdropPath: json["backdrop_path"],
         id: json["id"],
@@ -23,6 +23,6 @@ class MovieDetalisModel extends MovieDetalis {
         voteAvergae: json["vote_average"],
         runTime: json["runtime"],
         genres: List<GenresModel>.from(
-            json["genres"].map((x) => GenresModel.fromjson(x))),
+            json["genres"].map((x) => GenresModel.fromJson(x))),
       );
 }

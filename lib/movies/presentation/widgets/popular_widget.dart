@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/core/network/api_constance.dart';
 import 'package:movies_app/core/utils/enums.dart';
-import 'package:movies_app/movies/presentation/bloc/movies_bloc_bloc.dart';
+import 'package:movies_app/movies/presentation/bloc/movie_bloc/movies_bloc_bloc.dart';
 import 'package:shimmer/shimmer.dart';
 
 class PopularWidget extends StatelessWidget {
